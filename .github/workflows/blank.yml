@@ -93,6 +93,7 @@ jobs:
         AUTHOR: "Rajat K"
       run: |
         artifactName=$(ls *.jar | head -1)
-        mvn deploy -DmuleDeploy -Dap.clientid=${{ secrets.AP_CLIENTID }} \
-        -Dap.clientsecret=${{ secrets.AP_CLIENTSECRET }}
+        mvn deploy -DmuleDeploy -Dtarget="dev" -DtargetType="server" \
+        -Dusername="${{secrets.ANYPOINT_USERNAME}}" -Dpassword="${{secrets.ANYPOINT_PASSWORD}}" \
+        -Denvironment="dev" -DbusinessGroupId="69dfa759-ffac-4ffa-afcf-4b84058e03c6"
   
